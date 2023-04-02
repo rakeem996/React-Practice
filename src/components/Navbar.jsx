@@ -1,33 +1,28 @@
-import React,{useState} from 'react'
+import React from 'react'
 
-function Navbar() {
+function Navbar(props) {
 
-  const [mode,setMode] = useState(0)
-
-  function HandleMode(){
-    setMode(!mode);
-  }
 
   return (
     <div>
-      <ul className="nav nav-tabs bg-dark">
+      <ul className= {props.mode ? "nav nav-tabs bg-white" : "nav nav-tabs bg-dark"}>
         <li className="nav-item">
-          <a className="nav-link text-white" href="/">
+          <a className= {props.mode? "nav-link" : "nav-link text-white"} href="/">
             Home
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-white" href="/">
+          <a className= {props.mode? "nav-link" : "nav-link text-white"} href="/">
             About
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-white" aria-current="page" href="/">
+          <a className={props.mode? "nav-link" : "nav-link text-white"} aria-current="page" href="/">
            Contact
           </a>
         </li>
         <li className="nav-item">
-          <button onClick={HandleMode} className='nav-link text-white'>Mode</button>
+          <button onClick={props.HandleMode} className={props.mode? "nav-link" : "nav-link text-white"}>Mode</button>
         </li>
       </ul>
     </div>

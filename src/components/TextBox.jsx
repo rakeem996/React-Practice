@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function TextBox() {
+function TextBox(props) {
 
     const [para, setPara] = useState({
       sentence:"",
@@ -42,7 +42,7 @@ function TextBox() {
 
 
   return (
-    <div className="container" style={{width:"60%" ,}}>
+    <div className={props.mode?"container rounded p-4 bg-secondary": "container rounded p-4"} style={{width:"60%" ,marginTop:"10px" ,background:"#A5D7E8"}}>
       <div className="form d-flex justify-content-center">
         <textarea
           onChange={(e) => {handleChange(e)}}
@@ -50,7 +50,7 @@ function TextBox() {
           name="sentence"
           className="form-control"
           placeholder="Enter a text"
-          style={{ height: "100px", width: "100%", margin: "20px 0px" }}
+          style={{ height: "100px", width: "100%", marginBottom:"10px"}}
         ></textarea>
       </div>
 
@@ -64,10 +64,10 @@ function TextBox() {
       </div>
 
       <div className="my-3">
-          <h2>Your text summary</h2>
-          <p className="bg-dark text-white p-2 rounded">{para.numberOfWords} words {para.numberOfChars} characters</p>
-          <h2>Preview</h2>
-          <p className={para.sentence.length>0 ? "bg-dark text-white p-2 rounded" : ""}>{para.sentence}</p>
+          <h2 className={props.mode ? "text-white" : ""}>Your text summary</h2>
+          <p className={props.mode ? "bg-white p-2 rounded" : "bg-dark text-white p-2 rounded"}>{para.numberOfWords} words {para.numberOfChars} characters</p>
+          <h2 className={props.mode ? "text-white" : ""}>Preview</h2>
+          <p className={ props.mode ? "bg-white p-2 rounded" : "bg-black text-white p-2 rounded"}>{para.sentence}</p>
       </div>
     </div>
   );
