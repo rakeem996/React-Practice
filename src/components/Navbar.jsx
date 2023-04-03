@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function Navbar(props) {
 
@@ -7,19 +8,19 @@ function Navbar(props) {
     <div>
       <ul className= {props.mode ? "nav nav-tabs bg-white" : "nav nav-tabs bg-dark"}>
         <li className="nav-item">
-          <a className= {props.mode? "nav-link" : "nav-link text-white"} href="/">
+          <Link className= {props.mode? "nav-link" : "nav-link text-white"} to="/">
             Home
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a className= {props.mode? "nav-link" : "nav-link text-white"} href="/">
+          <Link className= {props.mode? "nav-link" : "nav-link text-white"} to="/about">
             About
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a className={props.mode? "nav-link" : "nav-link text-white"} aria-current="page" href="/">
+          <Link className={props.mode? "nav-link" : "nav-link text-white"} aria-current="page" to="/contacts">
            Contact
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
           <button onClick={props.HandleMode} className={props.mode? "nav-link" : "nav-link text-white"}>Mode</button>
